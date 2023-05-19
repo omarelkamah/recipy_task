@@ -1,0 +1,84 @@
+@import "../../../styles/variables";
+
+.headerPages :global {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+
+  .container {
+    width: 100%;
+  }
+
+  .header_center {
+    height: 80px;
+
+    .logo {
+      display: flex;
+      flex: 1;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex: 2;
+      margin-left: 30px;
+
+      li {
+        font-weight: 500;
+        font-size: 15px;
+        text-transform: capitalize;
+        color: $c-p;
+        cursor: pointer;
+
+        a {
+          color: $c-p;
+        }
+      }
+    }
+    .user {
+      flex: 1;
+      justify-content: flex-end;
+      li {
+        margin: 0 10px !important;
+        cursor: pointer;
+
+        &.search {
+          font-size: 20px;
+          color: $c-p;
+        }
+      }
+    }
+  }
+
+  .menuPage {
+    .menuPageBtn {
+      display: none;
+      color: $c-p;
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .menuPage {
+      .menuPageBtn {
+        display: flex;
+      }
+    }
+
+    .links,
+    .user {
+      display: none !important;
+    }
+  }
+}

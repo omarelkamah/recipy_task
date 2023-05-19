@@ -1,0 +1,31 @@
+@import "../../../styles/variables";
+
+.inputsearch :global {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #a9a9a9;
+
+  input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 10px 0;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  .recipiesNumber {
+    min-width: 100px;
+  }
+
+  .clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}

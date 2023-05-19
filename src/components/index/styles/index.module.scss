@@ -1,0 +1,36 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&display=swap");
+
+.indexPage :global {
+  margin: 70px 0;
+
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    font-size: 27px;
+    margin-bottom: 20px;
+  }
+
+  .recipyCards {
+    margin-top: 30px;
+  }
+
+  .loadMoreBtn {
+    display: flex;
+    justify-content: center;
+
+    button {
+      font-weight: 600;
+      width: 200px;
+      height: 40px;
+      border: 1px solid $c-p;
+      border-radius: 4px;
+      margin-top: 30px;
+
+      &:hover {
+        color: $c-p;
+      }
+    }
+  }
+}

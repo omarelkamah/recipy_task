@@ -1,0 +1,12 @@
+@import "../../../styles/variables";
+
+.favourite :global {
+  margin: 70px 0;
+
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    font-size: 27px;
+    margin-bottom: 20px;
+  }
+}
