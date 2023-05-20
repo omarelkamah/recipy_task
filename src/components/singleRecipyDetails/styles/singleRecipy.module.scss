@@ -13,10 +13,34 @@
     height: 500px;
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
   }
 
   p {
     font-weight: 500;
-    margin-top: 30px;
+    margin: 15px 0;
+    line-height: 1.7;
+    color: $c-p;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .ingrediants {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid $c-p;
+    h3 {
+      font-weight: bold;
+    }
+
+    ul {
+      li {
+        span {
+          color: $c-p;
+        }
+      }
+    }
   }
 }

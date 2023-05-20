@@ -1,49 +1,52 @@
+import { useEffect, useState } from "react";
 import style from "./styles/singleRecipy.module.scss";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const SingleRecipyDetialsComponent = () => {
+  const [singleRecipy, setSingleRecipy] = useState({});
+  const param = useParams();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/${param.id}/information?apiKey=b57efb62940e4fdfbdeb2e2a7e00ad8f`
+      )
+      .then((e) => {
+        setSingleRecipy(e.data);
+        console.log(e.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [param.id]);
+
   return (
     <div className={style.singleRecipy}>
       <div className="container">
-        <h1>Recipy Name</h1>
+        <h1>{singleRecipy.title}</h1>
         <div className={`image`}>
           <img
-            src="/photos/product.jpg"
+            src={singleRecipy.image}
             alt=""
             width="100%"
             // height={80}
             layout="responsive"
           />
         </div>
-        <p>
-          Forget going out to eat or ordering takeout every time you crave
-          American food. Try making Almost Guilt Free Mac and Cheese at home.
-          For $2.72 per serving, this recipe covers 31% of your daily
-          requirements of vitamins and minerals. One portion of this dish
-          contains about 38g of protein, 31g of fat, and a total of 585
-          calories. This recipe serves 8. This recipe is liked by 4 foodies and
-          cooks. From preparation to the plate, this recipe takes roughly 45
-          minutes. Only a few people really liked this main course. If you have
-          cellantani pasta, flour, goat cheese, and a few other ingredients on
-          hand, you can make it. It is brought to you by Foodista. With a
-          spoonacular score of 68%, this dish is good. If you like this recipe,
-          you might also like recipes such as Almost Guilt Free Mac and Cheese,
-          Guilt-Free Mac 'n' Cheese, and Guilt-Free No-Bake Cheesecake.
-        </p>
-        <p>
-          Forget going out to eat or ordering takeout every time you crave
-          American food. Try making Almost Guilt Free Mac and Cheese at home.
-          For $2.72 per serving, this recipe covers 31% of your daily
-          requirements of vitamins and minerals. One portion of this dish
-          contains about 38g of protein, 31g of fat, and a total of 585
-          calories. This recipe serves 8. This recipe is liked by 4 foodies and
-          cooks. From preparation to the plate, this recipe takes roughly 45
-          minutes. Only a few people really liked this main course. If you have
-          cellantani pasta, flour, goat cheese, and a few other ingredients on
-          hand, you can make it. It is brought to you by Foodista. With a
-          spoonacular score of 68%, this dish is good. If you like this recipe,
-          you might also like recipes such as Almost Guilt Free Mac and Cheese,
-          Guilt-Free Mac 'n' Cheese, and Guilt-Free No-Bake Cheesecake.
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: singleRecipy.summary }}></p>
+        <p dangerouslySetInnerHTML={{ __html: singleRecipy.instructions }}></p>
+        <div className="ingrediants">
+          <h3>Recipy ingrediants</h3>
+          <ul>
+            {singleRecipy.extendedIngredients?.map((ingredient, index) => (
+              <li key={ingredient.id}>
+                <span>{index + 1} - </span>
+                {ingredient.original}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

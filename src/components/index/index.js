@@ -2,17 +2,32 @@ import { Button, Col, Row } from "antd";
 import { InputSearch } from "../common/inputSearch/inputSearch";
 import { RecipyCardSection } from "../common/cards/recipyCard";
 import style from "./styles/index.module.scss";
-import { useEffect } from "react";
-import { getIndexPage } from "../../store/slices/index/indexSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const { recipes } = useSelector(({ index }) => index);
+  const [recipes, setRecipes] = useState([]);
+  const [numberOfRecipes, setNumberOfRecipes] = useState(24);
+
+  const handelLoadMoreBtn = () => {
+    setNumberOfRecipes(numberOfRecipes + 10);
+  };
+
+  console.log(numberOfRecipes);
+
   useEffect(() => {
-    dispatch(getIndexPage());
-  }, [dispatch]);
-  console.log(recipes.length);
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/random?apiKey=b57efb62940e4fdfbdeb2e2a7e00ad8f&number=${numberOfRecipes}`
+      )
+      .then((e) => {
+        setRecipes(e.data.recipes);
+        console.log(e.data.recipes);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [numberOfRecipes]);
 
   return (
     <section className={style.indexPage}>
@@ -30,7 +45,7 @@ export default function Home() {
           </Row>
         </div>
         <div className="loadMoreBtn">
-          <Button>Load More</Button>
+          <Button onClick={handelLoadMoreBtn}>Load More</Button>
         </div>
       </div>
     </section>
