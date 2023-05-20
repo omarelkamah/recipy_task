@@ -28,7 +28,7 @@ export const SearchedComponent = () => {
     <div className={style.searchedPage}>
         <div className="container">
         <h1>Search results</h1>
-        <InputSearch number={searchData?.length}/>
+        <InputSearch number={searchData?.length} showNumber={true}/>
         <div className="recipyCards">
           <Row gutter={20}>
             {searchData.length > 0 && searchData?.map((recipy) => (

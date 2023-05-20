@@ -4,7 +4,7 @@ import { Input } from "antd";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const InputSearch = ({ number }) => {
+export const InputSearch = ({ number, setIsModalOpen, showNumber }) => {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef("");
   const navigate = useNavigate();
@@ -21,6 +21,8 @@ export const InputSearch = ({ number }) => {
   const handelSubmit = (e) => {
     e.preventDefault();
     navigate(`/searched/${inputValue}`);
+
+    setIsModalOpen && setIsModalOpen(false);
   };
 
   return (
@@ -33,7 +35,9 @@ export const InputSearch = ({ number }) => {
           value={inputValue}
           onChange={(e) => handelChange(e)}
         />
-        <div className="recipiesNumber">({number} Recipes)</div>
+        <div className="recipiesNumber">
+          {showNumber ? `(${number} Recipes)` : ""}
+        </div>
         <div className="clear" onClick={handelClear}>
           <MdClear />
         </div>

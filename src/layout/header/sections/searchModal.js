@@ -9,12 +9,15 @@ export const SearchModal = () => {
   const showModal = () => {
     setIsModalOpen(true);
   };
+
   const handleOk = () => {
     setIsModalOpen(false);
   };
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div>
       <div className="flex" onClick={showModal}>
@@ -22,39 +25,13 @@ export const SearchModal = () => {
       </div>
       <Modal
         title=""
-        open={isModalOpen}
+        visible={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[]}
         wrapClassName="searchModal"
       >
-        <InputSearch />
-        <div className="searchCardss">
-          <div className="searchCard">
-            <div className={`image`}>
-              <img
-                src="/photos/product.jpg"
-                alt=""
-                width={50}
-                height={50}
-                layout="responsive"
-              />
-            </div>
-            <h3>Decadent Raspberry and Cream Cake</h3>
-          </div>
-          <div className="searchCard">
-            <div className={`image`}>
-              <img
-                src="/photos/product.jpg"
-                alt=""
-                width={50}
-                height={50}
-                layout="responsive"
-              />
-            </div>
-            <h3>Decadent Raspberry and Cream Cake</h3>
-          </div>
-        </div>
+        <InputSearch setIsModalOpen={setIsModalOpen} showNumber={false} />
       </Modal>
     </div>
   );

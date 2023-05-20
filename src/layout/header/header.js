@@ -1,22 +1,19 @@
 import style from "./style/header.module.scss";
 import Menue from "./sections/menu";
 import { AiFillHeart } from "react-icons/ai";
-import { Dropdown } from "antd";
+import { Dropdown, Menu } from "antd";
 import { BiChevronDown } from "react-icons/bi";
 import { SearchModal } from "./sections/searchModal";
 import { Link } from "react-router-dom";
 
+const menu = (
+  <Menu>
+    <Menu.Item key="1">Option 1</Menu.Item>
+    <Menu.Item key="2">Option 2</Menu.Item>
+  </Menu>
+);
+
 function HeaderApp() {
-  const items = [
-    {
-      label: <a href="http">Link One</a>,
-      key: "0",
-    },
-    {
-      label: <a href="http">Link Two</a>,
-      key: "1",
-    },
-  ];
   return (
     <header className={style.headerPages}>
       <div className={`container`}>
@@ -27,29 +24,18 @@ function HeaderApp() {
             </Link>
           </div>
           <Menue />
+
           <ul className="links">
             <li>
-              <Dropdown
-                menu={{
-                  items,
-                }}
-                trigger={["click"]}
-              >
-                <>
-                  <div className="flex">
-                    HomePage
-                    <BiChevronDown />
-                  </div>
-                </>
+              <Dropdown overlay={menu}>
+                <div className="flex">
+                  HomePage
+                  <BiChevronDown />
+                </div>
               </Dropdown>
             </li>
             <li>
-              <Dropdown
-                menu={{
-                  items,
-                }}
-                trigger={["click"]}
-              >
+              <Dropdown overlay={menu}>
                 <div className="flex">
                   Recipe Page
                   <BiChevronDown />
@@ -57,13 +43,8 @@ function HeaderApp() {
               </Dropdown>
             </li>
             <li>
-              <Dropdown
-                menu={{
-                  items,
-                }}
-                trigger={["click"]}
-              >
-                <div className="flex">
+              <Dropdown overlay={menu}>
+                <div className="flex gap-1">
                   Pages
                   <BiChevronDown />
                 </div>

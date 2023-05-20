@@ -33,7 +33,7 @@ export default function Home() {
     <section className={style.indexPage}>
       <div className="container">
         <h1>Search results</h1>
-        <InputSearch number={recipes.length} />
+        <InputSearch number={recipes.length} showNumber={true} />
         <div className="recipyCards">
           <Row gutter={20}>
             {recipes.length > 0 &&

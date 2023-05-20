@@ -25,7 +25,7 @@ const Menue = () => {
           placement={"right"}
           closable={false}
           onClose={onClose}
-          open={visible}
+          visible={visible}
           key={"right"}
           className={"menuPageDrawer"}
         >
