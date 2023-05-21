@@ -1,6 +1,6 @@
 import { Button, Col, Row } from "antd";
 import { InputSearch } from "../common/inputSearch/inputSearch";
-import { RecipyCardSection } from "../common/cards/recipyCard";
+import { RecipyCardSection } from "../common/cards/recipyCard/recipyCard";
 import style from "./styles/index.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";

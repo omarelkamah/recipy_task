@@ -32,7 +32,6 @@ export const RecipyCardSection = ({ item, love }) => {
 
     // removeCookie("RFavouriteItems");
   };
-  console.log(cookies);
 
   return (
     <div className={style.recipyCard}>
