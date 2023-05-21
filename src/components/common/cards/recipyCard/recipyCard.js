@@ -27,10 +27,7 @@ export const RecipyCardSection = ({ item, love }) => {
         return checkCookie?.filter((e) => e.id !== mainObj.id);
       };
       setCookie("RFavouriteItems", [...checkById(), mainObj]);
-      console.log(mainObj, checkById());
     }
-
-    // removeCookie("RFavouriteItems");
   };
 
   return (

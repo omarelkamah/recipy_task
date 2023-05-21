@@ -8,7 +8,6 @@ const Menue = () => {
 
   const showDrawer = () => {
     setVisible(true);
-    console.log(visible);
   };
 
   const onClose = () => {

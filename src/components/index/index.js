@@ -20,7 +20,6 @@ export default function Home() {
       )
       .then((e) => {
         setRecipes(e.data.recipes);
-        console.log(e.data.recipes);
       })
       .catch((error) => {
         console.log(error);

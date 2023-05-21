@@ -18,7 +18,6 @@ export const SearchedComponent = () => {
       )
       .then((e) => {
         setSearchData(e.data.results);
-        console.log(e.data.results);
       })
       .catch((error) => {
         console.log(error);

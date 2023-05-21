@@ -14,7 +14,6 @@ export const SingleRecipyDetialsComponent = () => {
       )
       .then((e) => {
         setSingleRecipy(e.data);
-        console.log(e.data);
       })
       .catch((error) => {
         console.log(error);
