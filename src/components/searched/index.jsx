@@ -11,17 +11,17 @@ export const SearchedComponent = () => {
   const param = useParams()
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=b57efb62940e4fdfbdeb2e2a7e00ad8f&query=${param.name}`
-      )
-      .then((e) => {
-        setSearchData(e.data.results);
-        console.log(e.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .get(
+    //     `https://api.spoonacular.com/recipes/complexSearch?apiKey=b57efb62940e4fdfbdeb2e2a7e00ad8f&query=${param.name}`
+    //   )
+    //   .then((e) => {
+    //     setSearchData(e.data.results);
+    //     console.log(e.data.results);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, [param.name]);
     
   return (

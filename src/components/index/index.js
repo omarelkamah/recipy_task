@@ -13,8 +13,6 @@ export default function Home() {
     setNumberOfRecipes(numberOfRecipes + 10);
   };
 
-  console.log(numberOfRecipes);
-
   useEffect(() => {
     axios
       .get(
@@ -36,12 +34,11 @@ export default function Home() {
         <InputSearch number={recipes.length} showNumber={true} />
         <div className="recipyCards">
           <Row gutter={20}>
-            {recipes.length > 0 &&
-              recipes?.map((recipy) => (
-                <Col xs={24} md={12} lg={6} key={recipy.id}>
-                  <RecipyCardSection item={recipy} />
-                </Col>
-              ))}
+            {recipes?.map((recipy) => (
+              <Col xs={24} md={12} lg={6} key={recipy.id}>
+                <RecipyCardSection item={recipy} />
+              </Col>
+            ))}
           </Row>
         </div>
         <div className="loadMoreBtn">
